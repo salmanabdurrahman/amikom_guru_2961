@@ -57,9 +57,24 @@ $id_sesi = $_GET["id_sesi"];
         });
     }
 
+    function presensi_peserta() {
+        $.ajax({
+            type: "get",
+            url: "presensi_peserta.php?id_sesi=<?php echo $id_sesi ?>",
+            success: function (hasil_peserta) {
+                $("table tbody").html(hasil_peserta);
+            }
+        });
+    }
+
     presensi_qr();
+    presensi_peserta();
 
     setInterval(function () {
         presensi_qr();
+    }, 5000);
+
+    setInterval(function () {
+        presensi_peserta();
     }, 5000);
 </script>
