@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 18, 2024 at 02:40 AM
+-- Generation Time: Jan 10, 2025 at 07:17 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -265,6 +265,27 @@ INSERT INTO `peserta` (`id_peserta`, `id_kelas`, `nis`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `presensi`
+--
+
+CREATE TABLE `presensi` (
+  `id_presensi` int NOT NULL,
+  `id_sesi` int NOT NULL,
+  `nis` varchar(15) NOT NULL,
+  `waktu` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `presensi`
+--
+
+INSERT INTO `presensi` (`id_presensi`, `id_sesi`, `nis`, `waktu`) VALUES
+(1, 6, '23.12.2961', '2025-01-02 09:45:50'),
+(2, 6, '23.12.2962', '2025-01-02 09:47:07');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sesi`
 --
 
@@ -284,10 +305,9 @@ CREATE TABLE `sesi` (
 
 INSERT INTO `sesi` (`id_sesi`, `kode_kelas`, `materi_sesi`, `bahasan_sesi`, `kode_sesi`, `ke_sesi`, `tanggal_sesi`) VALUES
 (1, 'XP8BF', 'Pengenalan Android', 'Linear Layout', 'VpNaV', 1, '2024-11-28 09:58:55'),
-(2, 'XP8BF', 'Pengenalan Android', 'Linear Layout', '8CMdx', 1, '2024-11-28 10:04:09'),
 (3, 'XP8BF', 'Pengenalan Android', 'Grid View', 'SYVo7', 2, '2024-11-28 10:04:51'),
-(4, 'XP8BF', 'Layout', 'Layout linear dan constraint', 'GWspk', 2, '2024-12-05 09:08:10'),
-(5, 'XP8BF', 'Linear Layout', 'Linear Layout', 'nG6wW', 2, '2024-12-05 09:38:42');
+(4, 'XP8BF', 'Layout', 'Layout linear dan constraint', 'GWspk', 3, '2024-12-05 09:08:10'),
+(6, 'XP8BF', 'Android Kamera', 'Menggunakan library zxing untuk kamera', 'KGgIG', 4, '2025-01-02 07:23:28');
 
 -- --------------------------------------------------------
 
@@ -408,6 +428,12 @@ ALTER TABLE `peserta`
   ADD PRIMARY KEY (`id_peserta`);
 
 --
+-- Indexes for table `presensi`
+--
+ALTER TABLE `presensi`
+  ADD PRIMARY KEY (`id_presensi`);
+
+--
 -- Indexes for table `sesi`
 --
 ALTER TABLE `sesi`
@@ -448,10 +474,16 @@ ALTER TABLE `peserta`
   MODIFY `id_peserta` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
+-- AUTO_INCREMENT for table `presensi`
+--
+ALTER TABLE `presensi`
+  MODIFY `id_presensi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `sesi`
 --
 ALTER TABLE `sesi`
-  MODIFY `id_sesi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_sesi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
